@@ -1,0 +1,10 @@
+model,cv_roc_auc,cv_roc_auc_std,cv_pr_auc,cv_brier,cv_lift_top20,test_roc_auc,explainable,train_seconds
+logistic_regression,0.8496,0.0117,0.6712,0.1332,2.565,0.8476,True,0.4
+xgboost,0.849,0.011,0.6682,0.1334,2.538,0.8478,True,1.1
+gradient_boosting,0.8489,0.0112,0.6663,0.1338,2.538,0.846,False,8.3
+catboost,0.8486,0.0102,0.6671,0.1336,2.528,0.8453,True,4.1
+random_forest,0.8466,0.0097,0.6595,0.1346,2.541,0.8432,False,7.7
+lightgbm,0.845,0.0103,0.6604,0.1352,2.505,0.8453,True,1.4
+knn,0.8307,0.0128,0.615,0.1422,2.444,0.823,False,0.6
+naive_bayes,0.8228,0.0125,0.6188,0.2899,2.461,0.8125,False,0.3
+svm,0.7939,0.0172,0.6358,0.144,2.528,0.7981,False,18.6

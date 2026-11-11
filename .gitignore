@@ -1,0 +1,11 @@
+# Données brutes : licence « © Original Authors » (IBM), on documente le téléchargement au lieu de les republier
+data/raw/*
+!data/raw/.gitkeep
+.env
+__pycache__/
+*.pyc
+.venv/
+.venv-demo/
+venv/
+.pytest_cache/
+.DS_Store

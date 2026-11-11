@@ -1,0 +1,704 @@
+{
+  "cleaning": {
+    "rows_in": 7043,
+    "duplicate_ids": 0,
+    "total_charges_blank_set_to_0": 11,
+    "blank_rows_all_tenure_0": true,
+    "rows_out": 7043,
+    "churn_rate": 0.2654
+  },
+  "selected_model": "logistic_regression",
+  "best_overall_model": "logistic_regression",
+  "comparison": [
+    {
+      "model": "logistic_regression",
+      "cv_roc_auc": 0.8496,
+      "cv_roc_auc_std": 0.0117,
+      "cv_pr_auc": 0.6712,
+      "cv_brier": 0.1332,
+      "cv_lift_top20": 2.565,
+      "test_roc_auc": 0.8476,
+      "explainable": true,
+      "train_seconds": 0.4
+    },
+    {
+      "model": "xgboost",
+      "cv_roc_auc": 0.849,
+      "cv_roc_auc_std": 0.011,
+      "cv_pr_auc": 0.6682,
+      "cv_brier": 0.1334,
+      "cv_lift_top20": 2.538,
+      "test_roc_auc": 0.8478,
+      "explainable": true,
+      "train_seconds": 1.1
+    },
+    {
+      "model": "gradient_boosting",
+      "cv_roc_auc": 0.8489,
+      "cv_roc_auc_std": 0.0112,
+      "cv_pr_auc": 0.6663,
+      "cv_brier": 0.1338,
+      "cv_lift_top20": 2.538,
+      "test_roc_auc": 0.846,
+      "explainable": false,
+      "train_seconds": 8.3
+    },
+    {
+      "model": "catboost",
+      "cv_roc_auc": 0.8486,
+      "cv_roc_auc_std": 0.0102,
+      "cv_pr_auc": 0.6671,
+      "cv_brier": 0.1336,
+      "cv_lift_top20": 2.528,
+      "test_roc_auc": 0.8453,
+      "explainable": true,
+      "train_seconds": 4.1
+    },
+    {
+      "model": "random_forest",
+      "cv_roc_auc": 0.8466,
+      "cv_roc_auc_std": 0.0097,
+      "cv_pr_auc": 0.6595,
+      "cv_brier": 0.1346,
+      "cv_lift_top20": 2.541,
+      "test_roc_auc": 0.8432,
+      "explainable": false,
+      "train_seconds": 7.7
+    },
+    {
+      "model": "lightgbm",
+      "cv_roc_auc": 0.845,
+      "cv_roc_auc_std": 0.0103,
+      "cv_pr_auc": 0.6604,
+      "cv_brier": 0.1352,
+      "cv_lift_top20": 2.505,
+      "test_roc_auc": 0.8453,
+      "explainable": true,
+      "train_seconds": 1.4
+    },
+    {
+      "model": "knn",
+      "cv_roc_auc": 0.8307,
+      "cv_roc_auc_std": 0.0128,
+      "cv_pr_auc": 0.615,
+      "cv_brier": 0.1422,
+      "cv_lift_top20": 2.444,
+      "test_roc_auc": 0.823,
+      "explainable": false,
+      "train_seconds": 0.6
+    },
+    {
+      "model": "naive_bayes",
+      "cv_roc_auc": 0.8228,
+      "cv_roc_auc_std": 0.0125,
+      "cv_pr_auc": 0.6188,
+      "cv_brier": 0.2899,
+      "cv_lift_top20": 2.461,
+      "test_roc_auc": 0.8125,
+      "explainable": false,
+      "train_seconds": 0.3
+    },
+    {
+      "model": "svm",
+      "cv_roc_auc": 0.7939,
+      "cv_roc_auc_std": 0.0172,
+      "cv_pr_auc": 0.6358,
+      "cv_brier": 0.144,
+      "cv_lift_top20": 2.528,
+      "test_roc_auc": 0.7981,
+      "explainable": false,
+      "train_seconds": 18.6
+    }
+  ],
+  "test_metrics": {
+    "roc_auc": 0.8476,
+    "pr_auc": 0.6644,
+    "brier": 0.1348,
+    "lift_top20": 2.565,
+    "capture_top20": 0.5134
+  },
+  "test_decision": {
+    "threshold": 0.27,
+    "targeted_share": 0.4159,
+    "precision_churn": 0.5051,
+    "recall_churn": 0.7914,
+    "net_value": 35974.4,
+    "net_value_target_everyone": 7672.44,
+    "net_value_per_customer": 25.532,
+    "confusion_matrix": {
+      "tn": 745,
+      "fp": 290,
+      "fn": 78,
+      "tp": 296
+    }
+  },
+  "deciles": [
+    {
+      "decile": 1,
+      "n": 141,
+      "proba_moyenne": 0.7652,
+      "taux_churn_observe": 0.773,
+      "lift": 2.9124,
+      "capture_cumulee_churners": 0.2914
+    },
+    {
+      "decile": 2,
+      "n": 141,
+      "proba_moyenne": 0.5854,
+      "taux_churn_observe": 0.5887,
+      "lift": 2.2177,
+      "capture_cumulee_churners": 0.5134
+    },
+    {
+      "decile": 3,
+      "n": 141,
+      "proba_moyenne": 0.4599,
+      "taux_churn_observe": 0.3901,
+      "lift": 1.4695,
+      "capture_cumulee_churners": 0.6604
+    },
+    {
+      "decile": 4,
+      "n": 141,
+      "proba_moyenne": 0.339,
+      "taux_churn_observe": 0.3121,
+      "lift": 1.1756,
+      "capture_cumulee_churners": 0.7781
+    },
+    {
+      "decile": 5,
+      "n": 141,
+      "proba_moyenne": 0.2329,
+      "taux_churn_observe": 0.2553,
+      "lift": 0.9619,
+      "capture_cumulee_churners": 0.8743
+    },
+    {
+      "decile": 6,
+      "n": 140,
+      "proba_moyenne": 0.1437,
+      "taux_churn_observe": 0.1786,
+      "lift": 0.6727,
+      "capture_cumulee_churners": 0.9412
+    },
+    {
+      "decile": 7,
+      "n": 141,
+      "proba_moyenne": 0.0822,
+      "taux_churn_observe": 0.0993,
+      "lift": 0.3741,
+      "capture_cumulee_churners": 0.9786
+    },
+    {
+      "decile": 8,
+      "n": 141,
+      "proba_moyenne": 0.0432,
+      "taux_churn_observe": 0.0355,
+      "lift": 0.1336,
+      "capture_cumulee_churners": 0.992
+    },
+    {
+      "decile": 9,
+      "n": 141,
+      "proba_moyenne": 0.0205,
+      "taux_churn_observe": 0.0142,
+      "lift": 0.0534,
+      "capture_cumulee_churners": 0.9973
+    },
+    {
+      "decile": 10,
+      "n": 141,
+      "proba_moyenne": 0.0079,
+      "taux_churn_observe": 0.0071,
+      "lift": 0.0267,
+      "capture_cumulee_churners": 1.0
+    }
+  ],
+  "shap_mean_abs": {
+    "TotalCharges": 0.6298,
+    "Contract": 0.6015,
+    "InternetService": 0.5171,
+    "StreamingMovies": 0.2078,
+    "MultipleLines": 0.2014,
+    "StreamingTV": 0.2003,
+    "OnlineSecurity": 0.1843,
+    "PaperlessBilling": 0.1828,
+    "TechSupport": 0.1627,
+    "PaymentMethod": 0.157,
+    "tenure": 0.1318,
+    "OnlineBackup": 0.1025,
+    "DeviceProtection": 0.096,
+    "Dependents": 0.091,
+    "MonthlyCharges": 0.0621,
+    "SeniorCitizen": 0.039,
+    "PhoneService": 0.0301,
+    "Partner": 0.025,
+    "gender": 0.0096
+  },
+  "campaign_curve_oof": [
+    {
+      "threshold": 0.05,
+      "net_value": 103936.9,
+      "targeted": 4093
+    },
+    {
+      "threshold": 0.06,
+      "net_value": 112119.8,
+      "targeted": 3937
+    },
+    {
+      "threshold": 0.07,
+      "net_value": 120085.6,
+      "targeted": 3794
+    },
+    {
+      "threshold": 0.08,
+      "net_value": 126663.6,
+      "targeted": 3665
+    },
+    {
+      "threshold": 0.09,
+      "net_value": 131120.4,
+      "targeted": 3547
+    },
+    {
+      "threshold": 0.1,
+      "net_value": 133188.8,
+      "targeted": 3454
+    },
+    {
+      "threshold": 0.11,
+      "net_value": 136139.5,
+      "targeted": 3354
+    },
+    {
+      "threshold": 0.12,
+      "net_value": 139426.8,
+      "targeted": 3275
+    },
+    {
+      "threshold": 0.13,
+      "net_value": 142976.5,
+      "targeted": 3184
+    },
+    {
+      "threshold": 0.14,
+      "net_value": 144694.7,
+      "targeted": 3115
+    },
+    {
+      "threshold": 0.15,
+      "net_value": 147184.4,
+      "targeted": 3042
+    },
+    {
+      "threshold": 0.16,
+      "net_value": 149785.5,
+      "targeted": 2986
+    },
+    {
+      "threshold": 0.17,
+      "net_value": 150955.5,
+      "targeted": 2927
+    },
+    {
+      "threshold": 0.18,
+      "net_value": 152811.3,
+      "targeted": 2857
+    },
+    {
+      "threshold": 0.19,
+      "net_value": 155142.8,
+      "targeted": 2790
+    },
+    {
+      "threshold": 0.2,
+      "net_value": 155178.7,
+      "targeted": 2716
+    },
+    {
+      "threshold": 0.21,
+      "net_value": 157435.1,
+      "targeted": 2659
+    },
+    {
+      "threshold": 0.22,
+      "net_value": 156743.2,
+      "targeted": 2604
+    },
+    {
+      "threshold": 0.23,
+      "net_value": 157938.1,
+      "targeted": 2536
+    },
+    {
+      "threshold": 0.24,
+      "net_value": 159495.2,
+      "targeted": 2461
+    },
+    {
+      "threshold": 0.25,
+      "net_value": 160127.0,
+      "targeted": 2398
+    },
+    {
+      "threshold": 0.26,
+      "net_value": 159696.4,
+      "targeted": 2330
+    },
+    {
+      "threshold": 0.27,
+      "net_value": 160223.9,
+      "targeted": 2266
+    },
+    {
+      "threshold": 0.28,
+      "net_value": 159892.8,
+      "targeted": 2200
+    },
+    {
+      "threshold": 0.29,
+      "net_value": 157790.5,
+      "targeted": 2146
+    },
+    {
+      "threshold": 0.3,
+      "net_value": 156716.8,
+      "targeted": 2100
+    },
+    {
+      "threshold": 0.31,
+      "net_value": 157815.0,
+      "targeted": 2042
+    },
+    {
+      "threshold": 0.32,
+      "net_value": 157478.1,
+      "targeted": 1981
+    },
+    {
+      "threshold": 0.33,
+      "net_value": 158878.2,
+      "targeted": 1929
+    },
+    {
+      "threshold": 0.34,
+      "net_value": 159900.4,
+      "targeted": 1883
+    },
+    {
+      "threshold": 0.35,
+      "net_value": 159022.4,
+      "targeted": 1844
+    },
+    {
+      "threshold": 0.36,
+      "net_value": 157404.7,
+      "targeted": 1788
+    },
+    {
+      "threshold": 0.37,
+      "net_value": 157371.4,
+      "targeted": 1744
+    },
+    {
+      "threshold": 0.38,
+      "net_value": 155791.4,
+      "targeted": 1702
+    },
+    {
+      "threshold": 0.39,
+      "net_value": 154810.7,
+      "targeted": 1660
+    },
+    {
+      "threshold": 0.4,
+      "net_value": 153518.3,
+      "targeted": 1621
+    },
+    {
+      "threshold": 0.41,
+      "net_value": 151809.3,
+      "targeted": 1589
+    },
+    {
+      "threshold": 0.42,
+      "net_value": 150257.0,
+      "targeted": 1541
+    },
+    {
+      "threshold": 0.43,
+      "net_value": 149285.4,
+      "targeted": 1499
+    },
+    {
+      "threshold": 0.44,
+      "net_value": 148479.3,
+      "targeted": 1456
+    },
+    {
+      "threshold": 0.45,
+      "net_value": 145068.7,
+      "targeted": 1409
+    },
+    {
+      "threshold": 0.46,
+      "net_value": 144753.4,
+      "targeted": 1368
+    },
+    {
+      "threshold": 0.47,
+      "net_value": 144360.4,
+      "targeted": 1335
+    },
+    {
+      "threshold": 0.48,
+      "net_value": 142551.0,
+      "targeted": 1301
+    },
+    {
+      "threshold": 0.49,
+      "net_value": 139840.5,
+      "targeted": 1255
+    },
+    {
+      "threshold": 0.5,
+      "net_value": 138964.0,
+      "targeted": 1217
+    },
+    {
+      "threshold": 0.51,
+      "net_value": 136125.8,
+      "targeted": 1171
+    },
+    {
+      "threshold": 0.52,
+      "net_value": 130713.5,
+      "targeted": 1122
+    },
+    {
+      "threshold": 0.53,
+      "net_value": 128101.1,
+      "targeted": 1074
+    },
+    {
+      "threshold": 0.54,
+      "net_value": 123129.7,
+      "targeted": 1034
+    },
+    {
+      "threshold": 0.55,
+      "net_value": 119301.8,
+      "targeted": 987
+    },
+    {
+      "threshold": 0.56,
+      "net_value": 117254.4,
+      "targeted": 947
+    },
+    {
+      "threshold": 0.57,
+      "net_value": 113208.4,
+      "targeted": 911
+    },
+    {
+      "threshold": 0.58,
+      "net_value": 109882.2,
+      "targeted": 867
+    },
+    {
+      "threshold": 0.59,
+      "net_value": 105428.4,
+      "targeted": 823
+    },
+    {
+      "threshold": 0.6,
+      "net_value": 102212.3,
+      "targeted": 786
+    },
+    {
+      "threshold": 0.61,
+      "net_value": 97336.4,
+      "targeted": 750
+    },
+    {
+      "threshold": 0.62,
+      "net_value": 94217.6,
+      "targeted": 727
+    },
+    {
+      "threshold": 0.63,
+      "net_value": 91772.8,
+      "targeted": 694
+    },
+    {
+      "threshold": 0.64,
+      "net_value": 88440.9,
+      "targeted": 654
+    },
+    {
+      "threshold": 0.65,
+      "net_value": 85768.4,
+      "targeted": 624
+    },
+    {
+      "threshold": 0.66,
+      "net_value": 83182.7,
+      "targeted": 585
+    },
+    {
+      "threshold": 0.67,
+      "net_value": 79763.4,
+      "targeted": 558
+    },
+    {
+      "threshold": 0.68,
+      "net_value": 77432.9,
+      "targeted": 527
+    },
+    {
+      "threshold": 0.69,
+      "net_value": 72049.7,
+      "targeted": 486
+    },
+    {
+      "threshold": 0.7,
+      "net_value": 68114.6,
+      "targeted": 449
+    },
+    {
+      "threshold": 0.71,
+      "net_value": 64486.4,
+      "targeted": 420
+    },
+    {
+      "threshold": 0.72,
+      "net_value": 61783.9,
+      "targeted": 385
+    },
+    {
+      "threshold": 0.73,
+      "net_value": 59050.7,
+      "targeted": 358
+    },
+    {
+      "threshold": 0.74,
+      "net_value": 55111.1,
+      "targeted": 331
+    },
+    {
+      "threshold": 0.75,
+      "net_value": 53000.5,
+      "targeted": 306
+    },
+    {
+      "threshold": 0.76,
+      "net_value": 49849.6,
+      "targeted": 287
+    },
+    {
+      "threshold": 0.77,
+      "net_value": 45126.0,
+      "targeted": 255
+    },
+    {
+      "threshold": 0.78,
+      "net_value": 40160.0,
+      "targeted": 221
+    },
+    {
+      "threshold": 0.79,
+      "net_value": 35016.6,
+      "targeted": 194
+    },
+    {
+      "threshold": 0.8,
+      "net_value": 30069.8,
+      "targeted": 168
+    },
+    {
+      "threshold": 0.81,
+      "net_value": 24467.8,
+      "targeted": 137
+    },
+    {
+      "threshold": 0.82,
+      "net_value": 20568.1,
+      "targeted": 110
+    },
+    {
+      "threshold": 0.83,
+      "net_value": 17840.0,
+      "targeted": 95
+    },
+    {
+      "threshold": 0.84,
+      "net_value": 15051.4,
+      "targeted": 81
+    },
+    {
+      "threshold": 0.85,
+      "net_value": 12009.1,
+      "targeted": 65
+    },
+    {
+      "threshold": 0.86,
+      "net_value": 10872.2,
+      "targeted": 60
+    },
+    {
+      "threshold": 0.87,
+      "net_value": 9135.1,
+      "targeted": 44
+    },
+    {
+      "threshold": 0.88,
+      "net_value": 7133.2,
+      "targeted": 32
+    },
+    {
+      "threshold": 0.89,
+      "net_value": 5044.6,
+      "targeted": 21
+    },
+    {
+      "threshold": 0.9,
+      "net_value": 3834.2,
+      "targeted": 16
+    },
+    {
+      "threshold": 0.91,
+      "net_value": 1714.0,
+      "targeted": 7
+    },
+    {
+      "threshold": 0.92,
+      "net_value": 505.3,
+      "targeted": 2
+    },
+    {
+      "threshold": 0.93,
+      "net_value": 262.1,
+      "targeted": 1
+    },
+    {
+      "threshold": 0.94,
+      "net_value": 0.0,
+      "targeted": 0
+    },
+    {
+      "threshold": 0.95,
+      "net_value": 0.0,
+      "targeted": 0
+    }
+  ],
+  "churn_by_contract": {
+    "Month-to-month": 0.4271,
+    "One year": 0.1127,
+    "Two year": 0.0283
+  },
+  "test_size": {
+    "customers": 1409,
+    "churners": 374
+  }
+}
