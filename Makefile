@@ -5,7 +5,7 @@ install:
 	python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 train:
-	PYTHONPATH=src .venv/bin/python -m telco_churn.train
+	PYTHONPATH=src .venv/bin/python -m telco_churn.train && PYTHONPATH=src .venv/bin/python -m telco_churn.activity
 
 
 test:

@@ -5,7 +5,7 @@
 > **Projet 5 du portfolio Data & IA, variante télécoms : modélisation prédictive avec un classifieur**
 > Problématique : *quels clients risquent de se désabonner, et lesquels faut-il cibler avec une offre de rétention ?*
 
-Les neuf classifieurs du sujet sont comparés sur 7 043 abonnés. Le seuil de ciblage est choisi pour **maximiser la valeur d'une campagne de rétention**, et chaque score est accompagné de ses **motifs (SHAP)**. Le modèle est servi par une **API FastAPI sécurisée** dans **Docker**, avec une **démo Streamlit** interactive.
+Les neuf classifieurs du sujet sont comparés sur 7 043 abonnés. Le seuil de ciblage est choisi pour **maximiser la valeur d'une campagne de rétention**, et chaque score est accompagné de ses **motifs (SHAP)**. Le modèle est servi par une **API FastAPI sécurisée** dans **Docker**, avec un **tableau de bord Streamlit** de six pages : pilotage et activité pour le marketing et la direction, rétention et modèle pour l'équipe data.
 
 | | Résultat (jeu de test, 1 409 clients jamais vus) |
 |---|---|
@@ -17,7 +17,24 @@ Les neuf classifieurs du sujet sont comparés sur 7 043 abonnés. Le seuil de ci
 
 ### Démo en ligne : [lien Streamlit à ajouter après déploiement](#lancer-le-projet)
 
-![Démo du simulateur](reports/figures/demo_screenshot.png)
+![Synthèse](reports/figures/dashboard_activity.png)
+
+Le tableau de bord est une seule application, organisée comme le projet 2 : menu latéral par sections, filtres globaux à gauche, cartes KPI de même taille, grilles et donuts.
+
+| Section | Page | Contenu |
+|---|---|---|
+| Pilotage | **Synthèse** (accueil) | 8 KPI (clients, churn, revenu, ancienneté, revenu perdu, clients à cibler…), donuts statut / contrat / Internet, churn par contrat et par ancienneté, points d'attention calculés |
+| Activité | **Clients et revenu** | revenu, facture moyenne, profil des abonnés, mode de paiement, ancienneté, revenu conservé et perdu |
+| Activité | **Services** | téléphonie, accès Internet, grille des 6 options (adoption, churn avec et sans), croisements contrat × Internet |
+| Activité | **Churn par segment** | grilles de churn contrat × ancienneté, paiement × contrat, âge × Internet, classement des segments les plus exposés |
+| Rétention | **Clients à risque** | clients actifs à cibler, revenu à risque, portefeuille par niveau de risque, localisation des cibles |
+| Rétention | **Modèle et campagne** | simulateur d'un client avec motifs SHAP, campagne réglable, performance, méthode |
+
+**Filtrage croisé, comme dans Power BI** : un clic sur une part de donut, une barre ou une case de grille filtre toutes les pages. Le graphique cliqué garde toutes ses modalités et met la sélection en avant. Un second clic annule. Les filtres actifs s'affichent en puces, chacune avec une croix pour la retirer. Ils sont synchronisés avec les 6 filtres de la barre latérale (contrat, accès Internet, paiement, âge, ancienneté, niveau de risque), qui permettent aussi de choisir plusieurs valeurs.
+
+Les KPI des pages d'activité sont calculés à partir d'un **cube agrégé k-anonyme** (`reports/activity/`, aucun segment de moins de 5 clients, aucune ligne client), généré par `python -m telco_churn.activity`.
+
+![Modèle et campagne](reports/figures/demo_screenshot.png)
 
 ---
 
@@ -135,8 +152,8 @@ La réponse contient `churn_probability`, `action` (`RETENTION_OFFER` ou `NO_ACT
 ```bash
 make install        # environnement + dépendances (Python 3.11+)
 make train          # entraîne et compare les 9 modèles, écrit models/ et reports/
-make test           # 17 tests : nettoyage, campagne, API, sécurité, SHAP, démo
-make demo           # démo Streamlit (ou double-clic sur lancer_demo.command sous macOS)
+make test           # 29 tests : nettoyage, campagne, API, sécurité, SHAP, démo
+make demo           # tableau de bord Streamlit (ou double-clic sur lancer_demo.command sous macOS)
 cp .env.example .env && make api          # API sur http://localhost:8000
 make docker-build && make docker-run
 ```
@@ -148,7 +165,9 @@ make docker-build && make docker-run
 ```
 telco-churn-prediction/
 ├── api/main.py                    # API FastAPI sécurisée
-├── demo/app.py                    # démo Streamlit (simulateur, campagne, performance, méthode)
+├── demo/app.py                    # tableau de bord : menu latéral, en-tête, filtres
+├── demo/views/                    # overview, customers, services, segments, risk, model
+├── demo/common.py                 # palette, styles, cartes KPI, donuts, grilles, chargement sécurisé
 ├── src/telco_churn/
 │   ├── config.py                  # variables et hypothèses de campagne
 │   ├── data.py                    # chargement, contrôle SHA-256, nettoyage
@@ -156,9 +175,10 @@ telco-churn-prediction/
 │   ├── metrics.py                 # AUC, lift, valeur de campagne, seuil
 │   ├── explain.py                 # SHAP exact (linéaire et arbres) + motifs
 │   ├── plots.py · train.py        # figures et pipeline complet
+│   ├── activity.py                # cube agrégé k-anonyme de la vue Activité
 ├── models/                        # model.joblib + métadonnées (empreintes, seuil, métriques)
 ├── reports/                       # métriques, comparaison, déciles, table de campagne, figures
-├── tests/                         # 17 tests
+├── tests/                         # 29 tests
 └── Dockerfile · Makefile · MODEL_CARD.md · .github/workflows/ci.yml
 ```
 

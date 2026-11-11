@@ -1,0 +1,10 @@
+{
+  "customers": 7043,
+  "churned": 1869,
+  "mrr": 456116.6,
+  "cells": 255,
+  "threshold": 0.27,
+  "k_anonymity": 5,
+  "customers_in_grouped_cells": 310,
+  "min_cell_size": 5
+}

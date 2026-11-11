@@ -1,9 +1,9 @@
 [theme]
 base = "light"
-primaryColor = "#E85A0C"
-backgroundColor = "#E4E3E1"
-secondaryBackgroundColor = "#F9F9F8"
-textColor = "#171717"
+primaryColor = "#F4721E"
+backgroundColor = "#E9D9CA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1E2A3B"
 font = "Montserrat, sans-serif"
 headingFont = "Montserrat, sans-serif"
 baseFontSize = 16

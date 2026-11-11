@@ -25,3 +25,18 @@ def test_threshold_targets_nobody_when_offer_too_expensive():
     p = np.array([0.9, 0.8, 0.7, 0.6])
     t, _ = best_threshold(y, p, [10, 10, 10, 10])
     assert t <= 0.9  # le churner à 0,9 rapporte plus qu'il ne coûte
+
+
+def test_activity_cube_is_k_anonymous_and_labelled():
+    import json
+
+    import pandas as pd
+
+    from telco_churn import config
+    out = config.REPORTS_DIR / "activity"
+    cube = pd.read_csv(out / "activity_cube.csv")
+    manifest = json.loads((out / "manifest.json").read_text())
+    assert cube["customers"].min() >= 5
+    assert int(cube["customers"].sum()) == manifest["customers"] == 7043
+    assert set(cube["risk_band"]) <= {"Faible", "Modéré", "Élevé", "Très élevé", "Regroupé"}
+    assert set(cube["tenure_band"]) <= {"0-6 mois", "7-12 mois", "13-24 mois", "25-48 mois", "49-72 mois", "Regroupé"}
